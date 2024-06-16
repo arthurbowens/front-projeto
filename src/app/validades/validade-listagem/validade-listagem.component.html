@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="card custom-border">
+    <div class="card-header bg-primary">
+      <h5>Filtros</h5>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="nome">Categoria:</label>
+            <input type="text" id="nome" class="form-control custom-border" name="nomeCategoria"
+              [(ngModel)]="seletor.nomeCategoria" />
+          </div>
+          <div class="col-md-4">
+            <label for="nome">Marca:</label>
+            <input type="text" id="nome" class="form-control custom-border" name="marca"
+              [(ngModel)]="seletor.marca" />
+          </div>
+
+          <div class="col-md-4">
+            <label for="nome">Lote:</label>
+            <input type="text" id="nome" class="form-control custom-border" name="lote"
+              [(ngModel)]="seletor.lote" />
+          </div>
+          <div class="col-md-4">
+            <label for="nome">Codigo de barras:</label>
+            <input type="text" id="nome" class="form-control custom-border" name="codigoBarras"
+              [(ngModel)]="seletor.codigoBarras" />
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label for="nomePesquisador" class="form-label">Corredores:</label>
+            <select class="form-control" name="nomecorredores"
+                    [(ngModel)]="seletor.nomeCorredor">
+            </select>
+          </div>
+          <div class="col-md-3 form-group">
+            <label for="inicioPesquisa" class="form-label">Data vencimento:</label>
+            <input type="date" class="form-control" name="dataFinalVencimento"
+                    [(ngModel)]="seletor.dataFinalVencimento">
+          </div>
+          <div class="col-md-3 form-group">
+            <label for="finalPesquisa" class="form-label">Data Recebimento:</label>
+            <input type="date" class="form-control" name="dataFinalRecebimento"
+                    [(ngModel)]="seletor.dataFinalRecebimento">
+          </div>
+
+          <div class="col-md-12">
+            <label for="finalPesquisa" class="form-label">Data fabricacao:</label>
+            <input type="date" class="form-control" name="dataFinalFabricacao"
+                [(ngModel)]="seletor.dataFinalFabricacao">
+          </div>
+
+          <div class="col-md-6">
+            <label for="btnLimpar">&nbsp;</label>
+            <button type="button" class="form-control btn btn-warning" name="btnLimpar"
+              (click)="limpar()">
+              <i class="bi bi-trash"></i> Limpar
+            </button>
+          </div>
+          <div class="col-md-6">
+            <label for="btnPesquisar">&nbsp;</label>
+            <button type="button" class="form-control btn btn-primary" name="btnPesquisar"
+              (click)="pesquisar()">
+              <i class="bi bi-search"></i> Pesquisar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
