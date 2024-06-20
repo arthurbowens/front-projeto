@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ValidadeListagemComponent } from './validade-listagem/validade-listagem.component';
+import { CorredorListagemComponent } from './corredor-listagem/corredor-listagem.component';
 
 const routes: Routes = [
-  {path: "", component: ValidadeListagemComponent},
+  {path: "", component: CorredorListagemComponent},
+
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ValidadesRoutingModule { }
+export class CorredorRoutingModule { }

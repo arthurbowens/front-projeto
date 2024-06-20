@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h5>{{ idProduto ? 'Editar' : 'Novo' }} Produto</h5>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="nome">Descrição:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nome"
+              name="descricao"
+              [(ngModel)]="produto.descricao"
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="marca">Marca:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="marca"
+              name="marca"
+              [(ngModel)]="produto.marca"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label for="unidadeMedida">Unidade de Medida:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="unidadeMedida"
+              name="unidadeMedida"
+              [(ngModel)]="produto.unidadeMedida"
+              required
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="quantidade">Quantidade:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="quantidade"
+              name="quantidade"
+              [(ngModel)]="produto.quantidade"
+              required
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="codigoBarras">Código de Barras:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="codigoBarras"
+              name="codigoBarras"
+              [(ngModel)]="produto.codigoBarras"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label for="categoria">Categoria:</label>
+            <select
+              class="form-control"
+              id="categoria"
+              name="categoria"
+              [(ngModel)]="produto.categoria"
+              required
+            >
+              <option [ngValue]="null">Selecione uma categoria</option>
+              <option [ngValue]="categoria" *ngFor="let categoria of categorias">
+                {{ categoria.nome }}
+              </option>
+            </select>
+          </div>
+          <!-- <div class="form-group col-md-4">
+            <label for="dataFabricacao">Data de Fabricação:</label>
+            <input
+              type="date"
+              class="form-control"
+              id="dataFabricacao"
+              name="dataFabricacao"
+              [(ngModel)]="produto"
+              required -->
+            />
+          </div> -->
+          <!-- <div class="form-group col-md-4">
+            <label for="dataValidade">Data de Validade:</label>
+            <input
+              type="date"
+              class="form-control"
+              id="dataValidade"
+              name="dataValidade"
+             [(ngModel)]=""
+              required
+            /> -->
+          <!-- </div>
+        </div> -->
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="fornecedores">Fornecedores:</label>
+            <select multiple class="form-control" id="fornecedores" name="fornecedores" [(ngModel)]="produto.fornecedores">
+              <option [ngValue]="null">Selecione fornecedores</option>
+              <option [ngValue]="fornecedor" *ngFor="let fornecedor of fornecedores">
+                {{ fornecedor.nome }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <button type="button" class="btn btn-primary" (click)="salvar()">Salvar</button>

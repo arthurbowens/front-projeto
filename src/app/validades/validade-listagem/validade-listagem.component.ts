@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 
 export class ValidadeListagemComponent {
   public validades: Array<ItemProduto> = new Array();
-  public vacina: number;
+
   public seletor: ItemProdutoSeletor = new ItemProdutoSeletor();
 
   public totalPaginas: number = 0;

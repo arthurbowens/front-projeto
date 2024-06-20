@@ -11,11 +11,11 @@ import { ItemProdutoSeletor } from '../model/seletor/itemProduto.seletor';
 export class ItemProdutoService {
 
   //http://localhost:8080/SmartValidity
-  private readonly API = 'http://localhost:8080/SmartValidity/rest/vacina';
+  private readonly API = 'http://localhost:8080/SmartValidity/rest/itemProduto';
 
   constructor(private httpClient: HttpClient) { }
   public listarTodos(): Observable <Array<ItemProduto>> {
-    return this.httpClient.get<Array<ItemProduto>>(this.API + '/todas');
+    return this.httpClient.get<Array<ItemProduto>>(this.API + '/todos');
 
   }
 
