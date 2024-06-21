@@ -6,5 +6,4 @@ export class Categoria {
   public tipo: string;
   public corredor: Corredor;
   public produtos: Produto[];
-nome: any;
 }

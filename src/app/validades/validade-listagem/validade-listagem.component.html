@@ -1,56 +1,79 @@
-<div class="container">
-  <div class="card custom-border">
-    <div class="card-header bg-primary">
-      <h5>Filtros</h5>
-    </div>
-    <div class="card-body">
-      <form>
-        <div class="row">
-          <div class="col-md-4">
-            <label for="nome">Categoria:</label>
-            <input type="text" id="nome" class="form-control custom-border" name="nomeCategoria"
-              [(ngModel)]="seletor.nomeCategoria" />
-          </div>
-          <div class="col-md-4">
-            <label for="nome">Marca:</label>
-            <input type="text" id="nome" class="form-control custom-border" name="marca"
-              [(ngModel)]="seletor.marca" />
-          </div>
 
-          <div class="col-md-4">
-            <label for="nome">Lote:</label>
-            <input type="text" id="nome" class="form-control custom-border" name="lote"
-              [(ngModel)]="seletor.lote" />
-          </div>
-          <div class="col-md-4">
-            <label for="nome">Codigo de barras:</label>
-            <input type="text" id="nome" class="form-control custom-border" name="codigoBarras"
-              [(ngModel)]="seletor.codigoBarras" />
-          </div>
+
+<div class="container">
+  <form>
+    <div class="card">
+      <div class="card-header text-white bg-primary">
+        <h4>Filtros</h4>
+      </div>
+
+    <div class="card-body">
+
+      <div class="row">
+        <div class="col-md-4">
+          <label for="codigoBarras">Codigo de barras:</label>
+          <input type="text" class="form-control" name="codigoBarras"
+            [(ngModel)]="seletor.codigoBarras" />
+        </div>
+
+        <div class="col-md-4">
+          <label for="lote">Lote:</label>
+          <input type="text" class="form-control" name="lote"
+            [(ngModel)]="seletor.lote"/>
+        </div>
+
+        <div class="col-md-4">
+          <label for="descricao">Descrição:</label>
+          <input type="text" class="form-control" name="descricao"
+            [(ngModel)]="seletor.nomeProduto" />
+        </div>
+
+        <div class="col-md-6 form-group">
+          <label for="marca" class="form-label">  Marca:</label>
+          <input type="text" class="form-control" name="marca"
+            [(ngModel)]="seletor.marca">
+        </div>
+
+        <div class="col-md-6 form-group">
+          <label for="tipoCategoria" class="form-label"> Corredor: </label>
+          <select class="form-control" name="tipoCategoria"
+            [(ngModel)]="seletor.nomeCorredor">
+            @for (corredor of corredores; track corredor.idCorredor) {
+              <option value="{{ corredor.nome }}">{{ corredor.nome }}</option>
+            }
+          </select>
+        </div>
 
           <div class="col-md-6 form-group">
-            <label for="nomePesquisador" class="form-label">Corredores:</label>
-            <select class="form-control" name="nomecorredores"
-                    [(ngModel)]="seletor.nomeCorredor">
+            <label for="corredor" class="form-label"> Categoria: </label>
+            <select class="form-control" name="corredor"
+              [(ngModel)]="seletor.nomeCategoria">
+              @for (categoria of categorias; track categoria.idCategoria) {
+                <option value="{{ categoria.tipo }}">{{ categoria.tipo }}</option>
+              }
             </select>
           </div>
+
           <div class="col-md-3 form-group">
-            <label for="inicioPesquisa" class="form-label">Data vencimento:</label>
+            <label for="dataInicioVencimento" class="form-label">Data de Vencimento:</label>
+            <input type="date" class="form-control" name="dataInicioVencimento"
+                    [(ngModel)]="seletor.dataInicioVencimento">
+
             <input type="date" class="form-control" name="dataFinalVencimento"
                     [(ngModel)]="seletor.dataFinalVencimento">
           </div>
+
           <div class="col-md-3 form-group">
-            <label for="finalPesquisa" class="form-label">Data Recebimento:</label>
+            <label for="dataInicioRecebimento" class="form-label">Data de Recebimento:</label>
+            <input type="date" class="form-control" name="dataInicioRecebimento"
+                    [(ngModel)]="seletor.dataInicioRecebimento">
             <input type="date" class="form-control" name="dataFinalRecebimento"
                     [(ngModel)]="seletor.dataFinalRecebimento">
           </div>
+        </div>
 
-          <div class="col-md-12">
-            <label for="finalPesquisa" class="form-label">Data fabricacao:</label>
-            <input type="date" class="form-control" name="dataFinalFabricacao"
-                [(ngModel)]="seletor.dataFinalFabricacao">
-          </div>
 
+        <div class="row">
           <div class="col-md-6">
             <label for="btnLimpar">&nbsp;</label>
             <button type="button" class="form-control btn btn-warning" name="btnLimpar"
@@ -58,6 +81,7 @@
               <i class="bi bi-trash"></i> Limpar
             </button>
           </div>
+
           <div class="col-md-6">
             <label for="btnPesquisar">&nbsp;</label>
             <button type="button" class="form-control btn btn-primary" name="btnPesquisar"
@@ -66,7 +90,56 @@
             </button>
           </div>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
-</div>
+      </form>
+
+
+      <br>
+      <br>
+
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Código de barras</th>
+              <th>Descricao</th>
+              <th>Marca</th>
+              <th>Unidade de medida</th>
+              <th>Preço de compra</th>
+              <th>Preço de venda</th>
+              <th>Lote</th>
+              <th>Data de fabricaçãço</th>
+              <th>Data de vencimento</th>
+              <th>Data de recebimento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let itemProduto of itemProdutos">
+              <td>{{ itemProduto.produto.codigoBarras }}</td>
+              <td>{{ itemProduto.produto.descricao }}</td>
+              <td>{{ itemProduto.produto.marca }}</td>
+              <td>{{ itemProduto.produto.unidadeMedida}}</td>
+              <td>R$: {{ itemProduto.precoCompra }}</td>
+              <td>R$: {{ itemProduto.precoVenda }}</td>
+              <td>{{itemProduto.lote}}</td>
+              <td>{{itemProduto.dataFabricacao}}</td>
+              <td>{{itemProduto.dataVencimento}}</td>
+              <td>{{itemProduto.dataRecebimento}}</td>
+              <td  class="text-center">
+                <button class="btn btn-xs btn-info mr-12 text-white"
+                        (click)="editar(itemProduto)">
+                      <i class="bi bi-pencil"></i> Editar
+                </button>
+                &nbsp;
+                <button class="btn btn-xs btn-danger"
+                        (click)="excluir(itemProduto)">
+                    <i class="bi bi-x"></i> Excluir
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>

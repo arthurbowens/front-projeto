@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ValidadeListagemComponent } from './validade-listagem/validade-listagem.component';
 
 const routes: Routes = [
-  {path: "", component: ValidadeListagemComponent},
+  {path: "validade-listagem", component: ValidadeListagemComponent},
 ];
 
 @NgModule({

@@ -31,4 +31,8 @@ public contarPaginas(seletor: ItemProdutoSeletor):Observable<number> {
   return this.httpClient.post<number>(this.API + '/total-pagina', seletor);
 }
 
+  excluir(id: number): Observable<any>{
+    return this.httpClient.delete(this.API + '/' + id);
+  }
+
 }

@@ -2,16 +2,16 @@ import { BaseSeletor } from './base.seletor';
 
 export class ItemProdutoSeletor extends BaseSeletor{
 
-  dataInicioFabricacao?: Date; // Propriedade opcional
-  dataFinalFabricacao?: Date; // Propriedade opcional
-  dataInicioVencimento?: Date; // Propriedade opcional
-  dataFinalVencimento?: Date; // Propriedade opcional
-  dataInicioRecebimento?: Date; // Propriedade opcional
-  dataFinalRecebimento?: Date; // Propriedade opcional
-  lote?: string; // Propriedade opcional
-  nomeProduto: string;
-  marca: string;
-  codigoBarras: string;
-  nomeCorredor: string;
-  nomeCategoria: string;
+  public dataInicioFabricacao: Date;
+  public dataFinalFabricacao: Date;
+  public dataInicioVencimento: Date;
+  public dataFinalVencimento: Date;
+  public dataInicioRecebimento: Date;
+  public dataFinalRecebimento: Date;
+  public lote: string;
+  public nomeProduto: string;
+  public marca: string;
+  public codigoBarras: string;
+  public nomeCorredor: string;
+  public nomeCategoria: string;
 }

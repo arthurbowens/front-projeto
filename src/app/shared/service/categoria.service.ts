@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Categoria } from '../model/categoria';
 
@@ -15,7 +15,7 @@ export class CategoriaService {
   constructor(private httpClient: HttpClient) { }
 
   public listarTodos(): Observable <Array<Categoria>> {
-    return this.httpClient.get<Array<Categoria>>(this.API + '/todos');
+    return this.httpClient.get<Array<Categoria>>(this.API + '/todas');
 
   }
 
